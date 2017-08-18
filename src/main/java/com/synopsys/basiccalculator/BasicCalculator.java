@@ -20,15 +20,12 @@ import com.synopsys.basiccalculator.exception.InvalidExpressionException;
  */
 public class BasicCalculator {
 
-	// private Set<String> operands = new HashSet<>();
-
-	public BasicCalculator() {
-
-	}
+	private static final Logger logger = Logger.getLogger(BasicCalculator.class);
 
 	/**
 	 * Will solve the given expression and return the result. Suitable exception
 	 * will be thrown if there is an error
+	 * 
 	 * @param expresssion
 	 * @return result of the computed expression
 	 * @throws InvalidExpressionException
@@ -39,11 +36,27 @@ public class BasicCalculator {
 			throws InvalidExpressionException, NumberFormatException, ArithmeticException {
 
 		if (!validateParenthesis(expresssion))
+		{
+			logger.info("Invalid Expression thrown");
 			throw new InvalidExpressionException("Expression not well formed");
+		}
+			
 
 		return calculate(expresssion, new HashMap<String, Integer>());
 	}
 
+	/**
+	 * function will recursively evaluate the expression and returns the result.
+	 * 
+	 * @param expression
+	 *            : given expression to be parsed
+	 * @param variablesMap
+	 *            : hashMap to store the variable
+	 * @return
+	 * @throws NumberFormatException
+	 * @throws ArithmeticException
+	 * @throws InvalidExpressionException
+	 */
 	private int calculate(String expression, Map<String, Integer> variablesMap)
 			throws NumberFormatException, ArithmeticException, InvalidExpressionException {
 
@@ -74,19 +87,30 @@ public class BasicCalculator {
 			}
 		}
 
-		if (parsedList.size() != 3 || parsedList.size() != 4) {
-			throw new InvalidExpressionException("Exception while parsing expression");
-		}
-
 		if (parsedList.get(0).equalsIgnoreCase("add")) {
+			if (parsedList.size() != 3) {
+				throw new InvalidExpressionException("Exception while parsing expression");
+			}
 			return calculate(parsedList.get(1), variablesMap) + calculate(parsedList.get(2), variablesMap);
 		} else if (parsedList.get(0).equalsIgnoreCase("mult")) {
+			if (parsedList.size() != 3) {
+				throw new InvalidExpressionException("Exception while parsing expression");
+			}
 			return calculate(parsedList.get(1), variablesMap) * calculate(parsedList.get(2), variablesMap);
 		} else if (parsedList.get(0).equalsIgnoreCase("sub")) {
+			if (parsedList.size() != 3) {
+				throw new InvalidExpressionException("Exception while parsing expression");
+			}
 			return calculate(parsedList.get(1), variablesMap) - calculate(parsedList.get(2), variablesMap);
 		} else if (parsedList.get(0).equalsIgnoreCase("div")) {
+			if (parsedList.size() != 3) {
+				throw new InvalidExpressionException("Exception while parsing expression");
+			}
 			return calculate(parsedList.get(1), variablesMap) / calculate(parsedList.get(2), variablesMap);
 		} else if (parsedList.get(0).equalsIgnoreCase("let")) {
+			if (parsedList.size() != 4) {
+				throw new InvalidExpressionException("Exception while parsing expression");
+			}
 			String variableName = parsedList.get(1);
 			Integer oldValue = variablesMap.get(variableName);
 			variablesMap.put(variableName, calculate(parsedList.get(2), variablesMap));
@@ -109,14 +133,19 @@ public class BasicCalculator {
 	 * @return true if expression is well formed else false
 	 */
 	private boolean validateParenthesis(String exp) {
+
+		logger.info("parsing the expression to check its well formed or not");
 		char[] expChars = exp.toCharArray();
 		Stack<Character> parenthesis = new Stack<>();
 		for (int i = 0; i < expChars.length; i++) {
 			if (expChars[i] == '(') {
 				parenthesis.push('(');
 			} else if (expChars[i] == ')') {
-				if (parenthesis.size() < 1)
+				if (parenthesis.size() < 1) {
+					logger.error("given expression is not well formed");
 					return false;
+				}
+
 				parenthesis.pop();
 			}
 		}
