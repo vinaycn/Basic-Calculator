@@ -37,12 +37,9 @@ public class BasicCalculator {
 			logger.info("Invalid Expression thrown");
 			throw new InvalidExpressionException("Expression not well formed");
 		}
-		
-		int result  = calculate(expresssion, new HashMap<String, Integer>());
-        
-		if(result > Integer.MAX_VALUE || result < Integer.MIN_VALUE)
-			throw new ArithmeticException("overflow in the result");
-		
+
+		int result = calculate(expresssion, new HashMap<String, Integer>());
+
 		return result;
 	}
 
@@ -63,7 +60,7 @@ public class BasicCalculator {
 
 		logger.info("Parsing expression " + expression);
 
-		// List size should be 3(add,sub,mult,div) or 4(let) based the
+		// List size should be 3(add,sub,mult,div) or 4(let) based on the
 		// expression
 		final List<String> parsedList = new ArrayList<String>();
 		int startPos = expression.indexOf("(");
@@ -95,26 +92,30 @@ public class BasicCalculator {
 			}
 		}
 
-		
-		
 		if (parsedList.get(0).equalsIgnoreCase("add")) {
 			if (parsedList.size() != 3) {
 				logger.error("Exception while parsing expression " + expression);
 				throw new InvalidExpressionException("Exception while parsing expression");
 			}
-			return calculate(parsedList.get(1), variablesMap) + calculate(parsedList.get(2), variablesMap);
+			return Math.addExact(calculate(parsedList.get(1), variablesMap),
+					calculate(parsedList.get(2), variablesMap));
+
 		} else if (parsedList.get(0).equalsIgnoreCase("mult")) {
 			if (parsedList.size() != 3) {
 				logger.error("Exception while parsing expression " + expression);
 				throw new InvalidExpressionException("Exception while parsing expression");
 			}
-			return calculate(parsedList.get(1), variablesMap) * calculate(parsedList.get(2), variablesMap);
+			return Math.multiplyExact(calculate(parsedList.get(1), variablesMap),
+					calculate(parsedList.get(2), variablesMap));
+
 		} else if (parsedList.get(0).equalsIgnoreCase("sub")) {
 			if (parsedList.size() != 3) {
 				logger.error("Exception while parsing expression " + expression);
 				throw new InvalidExpressionException("Exception while parsing expression");
 			}
-			return calculate(parsedList.get(1), variablesMap) - calculate(parsedList.get(2), variablesMap);
+			return Math.subtractExact(calculate(parsedList.get(1), variablesMap),
+					calculate(parsedList.get(2), variablesMap));
+
 		} else if (parsedList.get(0).equalsIgnoreCase("div")) {
 			if (parsedList.size() != 3) {
 				logger.error("Exception while parsing expression " + expression);
@@ -127,11 +128,11 @@ public class BasicCalculator {
 				logger.error("Exception while parsing expression " + expression);
 				throw new InvalidExpressionException("Exception while parsing expression");
 			}
-			String variableName = parsedList.get(1);
-			int val = variablesMap.get(variableName);
-			variablesMap.put(variableName, calculate(parsedList.get(2), variablesMap));
+			String variable = parsedList.get(1);
+			int val = variablesMap.get(variable);
+			variablesMap.put(variable, calculate(parsedList.get(2), variablesMap));
 			int result = calculate(parsedList.get(3), variablesMap);
-			variablesMap.put(variableName, val);
+			variablesMap.put(variable, val);
 
 			return result;
 		} else {
@@ -151,7 +152,7 @@ public class BasicCalculator {
 
 		logger.info("parsing the expression to check its well formed or not");
 		char[] expChars = exp.toCharArray();
-		final Stack<Character> parenthesis = new Stack<>();
+		final Stack<Character> parenthesis = new Stack<Character>();
 		for (int i = 0; i < expChars.length; i++) {
 			if (expChars[i] == '(') {
 				parenthesis.push('(');
