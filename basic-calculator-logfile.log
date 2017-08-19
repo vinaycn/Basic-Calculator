@@ -652,3 +652,123 @@
 2017-08-19 12:06:28 INFO  BasicCalculator:149 - parsing the expression to check its well formed or not
 2017-08-19 12:06:28 INFO  BasicCalculator:61 - Parsing expression let(a,5,add(a,a))
 2017-08-19 12:06:28 ERROR BasicCalculatorMain:31 - 
+2017-08-19 13:43:07 INFO  BasicCalculator:152 - parsing the expression to check its well formed or not
+2017-08-19 13:43:07 ERROR BasicCalculator:160 - add(2,add(2,3))) expression is not well formed
+2017-08-19 13:43:07 INFO  BasicCalculator:37 - Invalid Expression thrown
+2017-08-19 13:43:07 INFO  BasicCalculator:152 - parsing the expression to check its well formed or not
+2017-08-19 13:43:07 INFO  BasicCalculator:60 - Parsing expression add(a,add(2,3))
+2017-08-19 13:43:07 INFO  BasicCalculator:60 - Parsing expression a
+2017-08-19 13:43:07 INFO  BasicCalculator:152 - parsing the expression to check its well formed or not
+2017-08-19 13:43:07 INFO  BasicCalculator:60 - Parsing expression add(1,div(2,0))
+2017-08-19 13:43:07 INFO  BasicCalculator:60 - Parsing expression 1
+2017-08-19 13:43:07 INFO  BasicCalculator:60 - Parsing expression div(2,0)
+2017-08-19 13:43:07 INFO  BasicCalculator:60 - Parsing expression 2
+2017-08-19 13:43:07 INFO  BasicCalculator:60 - Parsing expression 0
+2017-08-19 13:43:07 INFO  BasicCalculator:152 - parsing the expression to check its well formed or not
+2017-08-19 13:43:07 INFO  BasicCalculator:60 - Parsing expression mult(add(2,3),add(2,mult(3,4)))
+2017-08-19 13:43:07 INFO  BasicCalculator:60 - Parsing expression add(2,3)
+2017-08-19 13:43:07 INFO  BasicCalculator:60 - Parsing expression 2
+2017-08-19 13:43:07 INFO  BasicCalculator:60 - Parsing expression 3
+2017-08-19 13:43:07 INFO  BasicCalculator:60 - Parsing expression add(2,mult(3,4))
+2017-08-19 13:43:07 INFO  BasicCalculator:60 - Parsing expression 2
+2017-08-19 13:43:07 INFO  BasicCalculator:60 - Parsing expression mult(3,4)
+2017-08-19 13:43:07 INFO  BasicCalculator:60 - Parsing expression 3
+2017-08-19 13:43:07 INFO  BasicCalculator:60 - Parsing expression 4
+2017-08-19 13:43:07 INFO  BasicCalculator:152 - parsing the expression to check its well formed or not
+2017-08-19 13:43:07 INFO  BasicCalculator:60 - Parsing expression mult(add(2,3),,add(2,mult(3,4)))
+2017-08-19 13:43:07 ERROR BasicCalculator:97 - Exception while parsing expression mult(add(2,3),,add(2,mult(3,4)))
+2017-08-19 13:43:07 INFO  BasicCalculator:152 - parsing the expression to check its well formed or not
+2017-08-19 13:43:07 INFO  BasicCalculator:60 - Parsing expression mult(add(2,3),add(2,mult(222222,4344444)))
+2017-08-19 13:43:07 INFO  BasicCalculator:60 - Parsing expression add(2,3)
+2017-08-19 13:43:07 INFO  BasicCalculator:60 - Parsing expression 2
+2017-08-19 13:43:07 INFO  BasicCalculator:60 - Parsing expression 3
+2017-08-19 13:43:07 INFO  BasicCalculator:60 - Parsing expression add(2,mult(222222,4344444))
+2017-08-19 13:43:07 INFO  BasicCalculator:60 - Parsing expression 2
+2017-08-19 13:43:07 INFO  BasicCalculator:60 - Parsing expression mult(222222,4344444)
+2017-08-19 13:43:07 INFO  BasicCalculator:60 - Parsing expression 222222
+2017-08-19 13:43:07 INFO  BasicCalculator:60 - Parsing expression 4344444
+2017-08-19 13:43:13 INFO  BasicCalculatorMain:19 - Received input evaluating the expression
+2017-08-19 13:43:13 INFO  BasicCalculator:152 - parsing the expression to check its well formed or not
+2017-08-19 13:43:13 INFO  BasicCalculator:60 - Parsing expression let(a,5,add(a,a))
+2017-08-19 13:43:13 ERROR BasicCalculatorMain:39 - 
+2017-08-19 13:44:47 INFO  BasicCalculatorMain:19 - Received input evaluating the expression
+2017-08-19 13:44:47 INFO  BasicCalculator:152 - parsing the expression to check its well formed or not
+2017-08-19 13:44:47 INFO  BasicCalculator:60 - Parsing expression let(a,5,add(a,a))
+2017-08-19 13:44:47 ERROR BasicCalculatorMain:39 - 
+2017-08-19 13:45:01 INFO  BasicCalculatorMain:19 - Received input evaluating the expression
+2017-08-19 13:45:01 INFO  BasicCalculator:152 - parsing the expression to check its well formed or not
+2017-08-19 13:45:01 INFO  BasicCalculator:60 - Parsing expression let(a,5,add(a,a))
+2017-08-19 13:45:01 ERROR BasicCalculatorMain:39 - 
+2017-08-19 13:45:59 INFO  BasicCalculatorMain:19 - Received input evaluating the expression
+2017-08-19 13:46:00 INFO  BasicCalculator:152 - parsing the expression to check its well formed or not
+2017-08-19 13:46:00 INFO  BasicCalculator:60 - Parsing expression let(a,5,add(a,a))
+2017-08-19 13:46:24 ERROR BasicCalculatorMain:39 - 
+2017-08-19 13:47:25 INFO  BasicCalculatorMain:19 - Received input evaluating the expression
+2017-08-19 13:47:26 INFO  BasicCalculator:152 - parsing the expression to check its well formed or not
+2017-08-19 13:47:26 INFO  BasicCalculator:60 - Parsing expression let(a,5,add(a,a))
+2017-08-19 13:51:06 INFO  BasicCalculator:152 - parsing the expression to check its well formed or not
+2017-08-19 13:51:06 ERROR BasicCalculator:160 - add(2,add(2,3))) expression is not well formed
+2017-08-19 13:51:06 INFO  BasicCalculator:37 - Invalid Expression thrown
+2017-08-19 13:51:06 INFO  BasicCalculator:152 - parsing the expression to check its well formed or not
+2017-08-19 13:51:06 INFO  BasicCalculator:60 - Parsing expression add(a,add(2,3))
+2017-08-19 13:51:06 INFO  BasicCalculator:60 - Parsing expression a
+2017-08-19 13:51:06 INFO  BasicCalculator:152 - parsing the expression to check its well formed or not
+2017-08-19 13:51:06 INFO  BasicCalculator:60 - Parsing expression add(1,div(2,0))
+2017-08-19 13:51:06 INFO  BasicCalculator:60 - Parsing expression 1
+2017-08-19 13:51:06 INFO  BasicCalculator:60 - Parsing expression div(2,0)
+2017-08-19 13:51:06 INFO  BasicCalculator:60 - Parsing expression 2
+2017-08-19 13:51:06 INFO  BasicCalculator:60 - Parsing expression 0
+2017-08-19 13:51:06 INFO  BasicCalculator:152 - parsing the expression to check its well formed or not
+2017-08-19 13:51:06 INFO  BasicCalculator:60 - Parsing expression mult(add(2,3),add(2,mult(3,4)))
+2017-08-19 13:51:06 INFO  BasicCalculator:60 - Parsing expression add(2,3)
+2017-08-19 13:51:06 INFO  BasicCalculator:60 - Parsing expression 2
+2017-08-19 13:51:06 INFO  BasicCalculator:60 - Parsing expression 3
+2017-08-19 13:51:06 INFO  BasicCalculator:60 - Parsing expression add(2,mult(3,4))
+2017-08-19 13:51:06 INFO  BasicCalculator:60 - Parsing expression 2
+2017-08-19 13:51:06 INFO  BasicCalculator:60 - Parsing expression mult(3,4)
+2017-08-19 13:51:06 INFO  BasicCalculator:60 - Parsing expression 3
+2017-08-19 13:51:06 INFO  BasicCalculator:60 - Parsing expression 4
+2017-08-19 13:51:06 INFO  BasicCalculator:152 - parsing the expression to check its well formed or not
+2017-08-19 13:51:06 INFO  BasicCalculator:60 - Parsing expression mult(add(2,3),,add(2,mult(3,4)))
+2017-08-19 13:51:06 ERROR BasicCalculator:97 - Exception while parsing expression mult(add(2,3),,add(2,mult(3,4)))
+2017-08-19 13:51:06 INFO  BasicCalculator:152 - parsing the expression to check its well formed or not
+2017-08-19 13:51:06 INFO  BasicCalculator:60 - Parsing expression mult(add(2,3),add(2,mult(222222,4344444)))
+2017-08-19 13:51:06 INFO  BasicCalculator:60 - Parsing expression add(2,3)
+2017-08-19 13:51:06 INFO  BasicCalculator:60 - Parsing expression 2
+2017-08-19 13:51:06 INFO  BasicCalculator:60 - Parsing expression 3
+2017-08-19 13:51:06 INFO  BasicCalculator:60 - Parsing expression add(2,mult(222222,4344444))
+2017-08-19 13:51:06 INFO  BasicCalculator:60 - Parsing expression 2
+2017-08-19 13:51:06 INFO  BasicCalculator:60 - Parsing expression mult(222222,4344444)
+2017-08-19 13:51:06 INFO  BasicCalculator:60 - Parsing expression 222222
+2017-08-19 13:51:06 INFO  BasicCalculator:60 - Parsing expression 4344444
+2017-08-19 13:51:10 INFO  BasicCalculatorMain:19 - Received input evaluating the expression
+2017-08-19 13:51:10 INFO  BasicCalculator:152 - parsing the expression to check its well formed or not
+2017-08-19 13:51:10 INFO  BasicCalculator:60 - Parsing expression let(a,5,add(a,a))
+2017-08-19 13:51:10 INFO  BasicCalculator:60 - Parsing expression 5
+2017-08-19 13:51:10 INFO  BasicCalculator:60 - Parsing expression add(a,a)
+2017-08-19 13:51:10 INFO  BasicCalculator:60 - Parsing expression a
+2017-08-19 13:51:10 INFO  BasicCalculator:60 - Parsing expression a
+2017-08-19 13:51:54 INFO  BasicCalculatorMain:19 - Received input evaluating the expression
+2017-08-19 13:51:54 INFO  BasicCalculator:152 - parsing the expression to check its well formed or not
+2017-08-19 13:51:54 INFO  BasicCalculator:60 - Parsing expression let(a,5,let(b,mult(a,10),add(b,a)))
+2017-08-19 13:51:54 INFO  BasicCalculator:60 - Parsing expression 5
+2017-08-19 13:51:54 INFO  BasicCalculator:60 - Parsing expression let(b,mult(a,10),add(b,a))
+2017-08-19 13:51:54 INFO  BasicCalculator:60 - Parsing expression mult(a,10)
+2017-08-19 13:51:54 INFO  BasicCalculator:60 - Parsing expression a
+2017-08-19 13:51:54 INFO  BasicCalculator:60 - Parsing expression 10
+2017-08-19 13:51:54 INFO  BasicCalculator:60 - Parsing expression add(b,a)
+2017-08-19 13:51:54 INFO  BasicCalculator:60 - Parsing expression b
+2017-08-19 13:51:54 INFO  BasicCalculator:60 - Parsing expression a
+2017-08-19 13:52:13 INFO  BasicCalculatorMain:19 - Received input evaluating the expression
+2017-08-19 13:52:13 INFO  BasicCalculator:152 - parsing the expression to check its well formed or not
+2017-08-19 13:52:13 INFO  BasicCalculator:60 - Parsing expression let(a,let(b,10,add(b,b)),let(b,20,add(a,b)))
+2017-08-19 13:52:13 INFO  BasicCalculator:60 - Parsing expression let(b,10,add(b,b))
+2017-08-19 13:52:13 INFO  BasicCalculator:60 - Parsing expression 10
+2017-08-19 13:52:13 INFO  BasicCalculator:60 - Parsing expression add(b,b)
+2017-08-19 13:52:13 INFO  BasicCalculator:60 - Parsing expression b
+2017-08-19 13:52:13 INFO  BasicCalculator:60 - Parsing expression b
+2017-08-19 13:52:13 INFO  BasicCalculator:60 - Parsing expression let(b,20,add(a,b))
+2017-08-19 13:52:13 INFO  BasicCalculator:60 - Parsing expression 20
+2017-08-19 13:52:13 INFO  BasicCalculator:60 - Parsing expression add(a,b)
+2017-08-19 13:52:13 INFO  BasicCalculator:60 - Parsing expression a
+2017-08-19 13:52:13 INFO  BasicCalculator:60 - Parsing expression b

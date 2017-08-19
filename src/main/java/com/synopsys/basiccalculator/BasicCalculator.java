@@ -100,6 +100,10 @@ public class BasicCalculator {
 
 		}
 
+		
+		
+		if(parsedList.isEmpty()) throw new InvalidExpressionException("Exception while parsing");
+		
 		if (parsedList.get(0).equalsIgnoreCase("add")) {
 
 			return Math.addExact(calculate(parsedList.get(1), variablesMap),
@@ -124,7 +128,7 @@ public class BasicCalculator {
 				throw new InvalidExpressionException("Exception while parsing expression");
 			}
 			String variable = parsedList.get(1);
-			int val = variablesMap.get(variable);
+			Integer val = variablesMap.get(variable);
 			variablesMap.put(variable, calculate(parsedList.get(2), variablesMap));
 			int result = calculate(parsedList.get(3), variablesMap);
 			variablesMap.put(variable, val);
