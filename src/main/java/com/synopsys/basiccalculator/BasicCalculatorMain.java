@@ -14,8 +14,10 @@ public class BasicCalculatorMain {
 			logger.info("Received input evaluating the expression");
 			System.out.println(basicCalculator.solveExpression(args[0]));
 		} catch (InvalidExpressionException e) {
+			
 			System.out.println(e.getMessage());
 			logger.error(e.getMessage());
+			
 		} catch (NumberFormatException e) {
 			System.out.println("Error while parsing string to number " +e.getMessage());
 			logger.error(e.getMessage());

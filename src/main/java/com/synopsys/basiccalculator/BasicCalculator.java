@@ -10,9 +10,6 @@ import org.apache.log4j.Logger;
 
 import com.synopsys.basiccalculator.exception.InvalidExpressionException;
 
-
-
-
 /**
  * Class will evaluate the given expression
  * 
@@ -36,14 +33,17 @@ public class BasicCalculator {
 	public int solveExpression(String expresssion)
 			throws InvalidExpressionException, NumberFormatException, ArithmeticException {
 
-		if (!validateParenthesis(expresssion))
-		{
+		if (!validateParenthesis(expresssion)) {
 			logger.info("Invalid Expression thrown");
 			throw new InvalidExpressionException("Expression not well formed");
 		}
-			
-
-		return calculate(expresssion, new HashMap<String, Integer>());
+		
+		int result  = calculate(expresssion, new HashMap<String, Integer>());
+        
+		if(result > Integer.MAX_VALUE || result < Integer.MIN_VALUE)
+			throw new ArithmeticException("overflow in the result");
+		
+		return result;
 	}
 
 	/**
@@ -62,9 +62,10 @@ public class BasicCalculator {
 			throws NumberFormatException, ArithmeticException, InvalidExpressionException {
 
 		logger.info("Parsing expression " + expression);
-		
-		//List size should be 3(add,sub,mult,div) or 4(let) based the expression
-		List<String> parsedList = new ArrayList<String>();
+
+		// List size should be 3(add,sub,mult,div) or 4(let) based the
+		// expression
+		final List<String> parsedList = new ArrayList<String>();
 		int startPos = expression.indexOf("(");
 
 		if (startPos < 0) {
@@ -77,8 +78,9 @@ public class BasicCalculator {
 		parsedList.add(expression.substring(0, startPos));
 		int countParenthesis = 0;
 
-		//splits the expression to three parts if the expressions starts from (add,mult,div,sub)
-		// or four parts if the expression  starts from (let) 
+		// splits the expression to three parts if the expressions starts from
+		// (add,mult,div,sub)
+		// or four parts if the expression starts from (let)
 		for (int i = startPos; i < expression.length(); i++) {
 
 			if (expression.charAt(i) == '(')
@@ -93,6 +95,8 @@ public class BasicCalculator {
 			}
 		}
 
+		
+		
 		if (parsedList.get(0).equalsIgnoreCase("add")) {
 			if (parsedList.size() != 3) {
 				logger.error("Exception while parsing expression " + expression);
@@ -118,16 +122,16 @@ public class BasicCalculator {
 			}
 			return calculate(parsedList.get(1), variablesMap) / calculate(parsedList.get(2), variablesMap);
 		} else if (parsedList.get(0).equalsIgnoreCase("let")) {
-			
+
 			if (parsedList.size() != 4) {
 				logger.error("Exception while parsing expression " + expression);
 				throw new InvalidExpressionException("Exception while parsing expression");
 			}
 			String variableName = parsedList.get(1);
-			int oldValue = variablesMap.get(variableName);
+			int val = variablesMap.get(variableName);
 			variablesMap.put(variableName, calculate(parsedList.get(2), variablesMap));
 			int result = calculate(parsedList.get(3), variablesMap);
-			variablesMap.put(variableName, oldValue);
+			variablesMap.put(variableName, val);
 
 			return result;
 		} else {
@@ -147,7 +151,7 @@ public class BasicCalculator {
 
 		logger.info("parsing the expression to check its well formed or not");
 		char[] expChars = exp.toCharArray();
-		Stack<Character> parenthesis = new Stack<>();
+		final Stack<Character> parenthesis = new Stack<>();
 		for (int i = 0; i < expChars.length; i++) {
 			if (expChars[i] == '(') {
 				parenthesis.push('(');
