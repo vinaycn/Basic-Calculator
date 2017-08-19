@@ -48,5 +48,12 @@ public class BasicCalculatorTest {
 		int result = basicCalculator.solveExpression("mult(add(2,3),,add(2,mult(3,4)))");
 		Assert.assertEquals(70,result);
 	}
+	
+	@Test(expected = ArithmeticException.class)
+	public void givenExpressionShouldThrowOverflowException()
+			throws NumberFormatException, ArithmeticException, InvalidExpressionException {
+		int result = basicCalculator.solveExpression("mult(add(2,3),add(2,mult(222222,4344444)))");
+		Assert.assertEquals(70,result);
+	}
 
 }
