@@ -586,3 +586,47 @@
 2017-08-19 02:31:45 INFO  BasicCalculator:61 - Parsing expression mult(222222,4344444)
 2017-08-19 02:31:45 INFO  BasicCalculator:61 - Parsing expression 222222
 2017-08-19 02:31:45 INFO  BasicCalculator:61 - Parsing expression 4344444
+2017-08-19 02:33:37 INFO  BasicCalculator:149 - parsing the expression to check its well formed or not
+2017-08-19 02:33:37 INFO  BasicCalculator:61 - Parsing expression add(1,div(2,0))
+2017-08-19 02:33:37 INFO  BasicCalculator:61 - Parsing expression 1
+2017-08-19 02:33:37 INFO  BasicCalculator:61 - Parsing expression div(2,0)
+2017-08-19 02:33:37 INFO  BasicCalculator:61 - Parsing expression 2
+2017-08-19 02:33:37 INFO  BasicCalculator:61 - Parsing expression 0
+2017-08-19 02:33:37 INFO  BasicCalculator:149 - parsing the expression to check its well formed or not
+2017-08-19 02:33:37 INFO  BasicCalculator:61 - Parsing expression mult(add(2,3),add(2,mult(3,4)))
+2017-08-19 02:33:37 INFO  BasicCalculator:61 - Parsing expression add(2,3)
+2017-08-19 02:33:37 INFO  BasicCalculator:61 - Parsing expression 2
+2017-08-19 02:33:37 INFO  BasicCalculator:61 - Parsing expression 3
+2017-08-19 02:33:37 INFO  BasicCalculator:61 - Parsing expression add(2,mult(3,4))
+2017-08-19 02:33:37 INFO  BasicCalculator:61 - Parsing expression 2
+2017-08-19 02:33:37 INFO  BasicCalculator:61 - Parsing expression mult(3,4)
+2017-08-19 02:33:37 INFO  BasicCalculator:61 - Parsing expression 3
+2017-08-19 02:33:37 INFO  BasicCalculator:61 - Parsing expression 4
+2017-08-19 02:33:37 INFO  BasicCalculator:149 - parsing the expression to check its well formed or not
+2017-08-19 02:33:37 INFO  BasicCalculator:61 - Parsing expression mult(add(2,3),,add(2,mult(3,4)))
+2017-08-19 02:33:37 ERROR BasicCalculator:98 - Exception while parsing expression mult(add(2,3),,add(2,mult(3,4)))
+2017-08-19 02:33:37 INFO  BasicCalculator:149 - parsing the expression to check its well formed or not
+2017-08-19 02:33:37 INFO  BasicCalculator:61 - Parsing expression mult(add(2,3),add(2,mult(222222,4344444)))
+2017-08-19 02:33:37 INFO  BasicCalculator:61 - Parsing expression add(2,3)
+2017-08-19 02:33:37 INFO  BasicCalculator:61 - Parsing expression 2
+2017-08-19 02:33:37 INFO  BasicCalculator:61 - Parsing expression 3
+2017-08-19 02:33:37 INFO  BasicCalculator:61 - Parsing expression add(2,mult(222222,4344444))
+2017-08-19 02:33:37 INFO  BasicCalculator:61 - Parsing expression 2
+2017-08-19 02:33:37 INFO  BasicCalculator:61 - Parsing expression mult(222222,4344444)
+2017-08-19 02:33:37 INFO  BasicCalculator:61 - Parsing expression 222222
+2017-08-19 02:33:37 INFO  BasicCalculator:61 - Parsing expression 4344444
+2017-08-19 02:33:37 INFO  BasicCalculator:149 - parsing the expression to check its well formed or not
+2017-08-19 02:33:37 INFO  BasicCalculator:61 - Parsing expression add(a,add(2,3))
+2017-08-19 02:33:37 INFO  BasicCalculator:61 - Parsing expression a
+2017-08-19 02:33:37 INFO  BasicCalculator:149 - parsing the expression to check its well formed or not
+2017-08-19 02:33:37 ERROR BasicCalculator:157 - add(2,add(2,3))) expression is not well formed
+2017-08-19 02:33:37 INFO  BasicCalculator:37 - Invalid Expression thrown
+2017-08-19 02:34:46 INFO  BasicCalculatorMain:16 - Received input evaluating the expression
+2017-08-19 02:34:46 INFO  BasicCalculator:149 - parsing the expression to check its well formed or not
+2017-08-19 02:34:46 INFO  BasicCalculator:61 - Parsing expression addd(2,3)
+2017-08-19 02:34:46 ERROR BasicCalculatorMain:21 - Invalid Expression is provided: Exception While parsing expression
+2017-08-19 02:34:57 INFO  BasicCalculatorMain:16 - Received input evaluating the expression
+2017-08-19 02:34:57 INFO  BasicCalculator:149 - parsing the expression to check its well formed or not
+2017-08-19 02:34:57 INFO  BasicCalculator:61 - Parsing expression add(2,3,mult(3,4))
+2017-08-19 02:34:57 ERROR BasicCalculator:98 - Exception while parsing expression add(2,3,mult(3,4))
+2017-08-19 02:34:57 ERROR BasicCalculatorMain:21 - Invalid Expression is provided: Exception while parsing expression
