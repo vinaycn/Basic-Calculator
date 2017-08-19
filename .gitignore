@@ -1,6 +1,5 @@
 bin/
 tmp/
-target/
 .metadata
 .settings/
 *.tmp
