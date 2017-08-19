@@ -92,35 +92,31 @@ public class BasicCalculator {
 			}
 		}
 
-		if (parsedList.get(0).equalsIgnoreCase("add")) {
+		if (parsedList.get(0).equalsIgnoreCase("add") || parsedList.get(0).equalsIgnoreCase("mult")
+				|| parsedList.get(0).equalsIgnoreCase("div") || parsedList.get(0).equalsIgnoreCase("sub")) {
 			if (parsedList.size() != 3) {
 				logger.error("Exception while parsing expression " + expression);
 				throw new InvalidExpressionException("Exception while parsing expression");
 			}
+
+		}
+
+		if (parsedList.get(0).equalsIgnoreCase("add")) {
+
 			return Math.addExact(calculate(parsedList.get(1), variablesMap),
 					calculate(parsedList.get(2), variablesMap));
 
 		} else if (parsedList.get(0).equalsIgnoreCase("mult")) {
-			if (parsedList.size() != 3) {
-				logger.error("Exception while parsing expression " + expression);
-				throw new InvalidExpressionException("Exception while parsing expression");
-			}
+
 			return Math.multiplyExact(calculate(parsedList.get(1), variablesMap),
 					calculate(parsedList.get(2), variablesMap));
 
 		} else if (parsedList.get(0).equalsIgnoreCase("sub")) {
-			if (parsedList.size() != 3) {
-				logger.error("Exception while parsing expression " + expression);
-				throw new InvalidExpressionException("Exception while parsing expression");
-			}
+
 			return Math.subtractExact(calculate(parsedList.get(1), variablesMap),
 					calculate(parsedList.get(2), variablesMap));
 
 		} else if (parsedList.get(0).equalsIgnoreCase("div")) {
-			if (parsedList.size() != 3) {
-				logger.error("Exception while parsing expression " + expression);
-				throw new InvalidExpressionException("Exception while parsing expression");
-			}
 			return calculate(parsedList.get(1), variablesMap) / calculate(parsedList.get(2), variablesMap);
 		} else if (parsedList.get(0).equalsIgnoreCase("let")) {
 
