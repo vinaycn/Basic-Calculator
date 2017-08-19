@@ -55,5 +55,13 @@ public class BasicCalculatorTest {
 		int result = basicCalculator.solveExpression("mult(add(2,3),add(2,mult(222222,4344444)))");
 		Assert.assertEquals(70,result);
 	}
+	
+	
+	@Test
+	public void givenLetExpressionShouldReturnValidResult()
+			throws NumberFormatException, ArithmeticException, InvalidExpressionException {
+		int result = basicCalculator.solveExpression("let(a,let(b,10,add(b,b)),let(b,20,add(a,b)))");
+		Assert.assertEquals(40,result);
+	}
 
 }

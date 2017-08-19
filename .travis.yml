@@ -1,7 +1,6 @@
 language: java
 jdk: oraclejdk8
-script: mvn verify
-notifications:
-    template:
-      - '%{repository}#%{build_number} (%{branch} - %{commit} : %{author}): %{message} (<a href="%{build_url}">Details</a>/<a href="%{compare_url}">Change view</a>)'
-    format: html
+script: 
+   - mvn verify
+   - bash <(curl -s https://codecov.io/bash)
+
