@@ -37,7 +37,7 @@ public class BasicCalculator {
 			logger.info("Invalid Expression thrown");
 			throw new InvalidExpressionException("Expression not well formed");
 		}
-		
+
 		final int result = calculate(expresssion, new HashMap<String, Integer>());
 		return result;
 	}
@@ -59,8 +59,8 @@ public class BasicCalculator {
 
 		logger.info("Parsing expression " + expression);
 
-		//List size should be 3(add,sub,mult,div) or 4(let) based on the
-		//expression
+		// List size should be 3(add,sub,mult,div) or 4(let) based on the
+		// expression
 		final List<String> parsedList = new ArrayList<String>();
 		int startPos = expression.indexOf("(");
 
@@ -70,7 +70,7 @@ public class BasicCalculator {
 			return Integer.parseInt(expression);
 		}
 
-		//Add the operator to the list
+		// Add the operator to the list
 		parsedList.add(expression.substring(0, startPos));
 		int countParenthesis = 0;
 

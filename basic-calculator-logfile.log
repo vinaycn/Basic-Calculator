@@ -630,3 +630,25 @@
 2017-08-19 02:34:57 INFO  BasicCalculator:61 - Parsing expression add(2,3,mult(3,4))
 2017-08-19 02:34:57 ERROR BasicCalculator:98 - Exception while parsing expression add(2,3,mult(3,4))
 2017-08-19 02:34:57 ERROR BasicCalculatorMain:21 - Invalid Expression is provided: Exception while parsing expression
+2017-08-19 02:42:32 INFO  BasicCalculatorMain:16 - Received input evaluating the expression
+2017-08-19 02:42:32 INFO  BasicCalculator:149 - parsing the expression to check its well formed or not
+2017-08-19 02:42:32 INFO  BasicCalculator:61 - Parsing expression add(2,3,mult(3,4))
+2017-08-19 02:42:32 ERROR BasicCalculator:98 - Exception while parsing expression add(2,3,mult(3,4))
+2017-08-19 02:42:32 ERROR BasicCalculatorMain:21 - Invalid Expression is provided: Exception while parsing expression
+2017-08-19 12:05:33 INFO  BasicCalculatorMain:16 - Received input evaluating the expression
+2017-08-19 12:05:33 INFO  BasicCalculator:149 - parsing the expression to check its well formed or not
+2017-08-19 12:05:33 INFO  BasicCalculator:61 - Parsing expression let(a,5,let(b,mult(a,10),add(b,a)))
+2017-08-19 12:05:33 ERROR BasicCalculatorMain:31 - 
+2017-08-19 12:06:12 INFO  BasicCalculatorMain:16 - Received input evaluating the expression
+2017-08-19 12:06:12 INFO  BasicCalculator:149 - parsing the expression to check its well formed or not
+2017-08-19 12:06:12 INFO  BasicCalculator:61 - Parsing expression mult(add(2,2),div(9,3))
+2017-08-19 12:06:12 INFO  BasicCalculator:61 - Parsing expression add(2,2)
+2017-08-19 12:06:12 INFO  BasicCalculator:61 - Parsing expression 2
+2017-08-19 12:06:12 INFO  BasicCalculator:61 - Parsing expression 2
+2017-08-19 12:06:12 INFO  BasicCalculator:61 - Parsing expression div(9,3)
+2017-08-19 12:06:12 INFO  BasicCalculator:61 - Parsing expression 9
+2017-08-19 12:06:12 INFO  BasicCalculator:61 - Parsing expression 3
+2017-08-19 12:06:28 INFO  BasicCalculatorMain:16 - Received input evaluating the expression
+2017-08-19 12:06:28 INFO  BasicCalculator:149 - parsing the expression to check its well formed or not
+2017-08-19 12:06:28 INFO  BasicCalculator:61 - Parsing expression let(a,5,add(a,a))
+2017-08-19 12:06:28 ERROR BasicCalculatorMain:31 - 
