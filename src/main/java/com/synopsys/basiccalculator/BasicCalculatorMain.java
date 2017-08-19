@@ -17,7 +17,7 @@ public class BasicCalculatorMain {
 			System.out.println(e.getMessage());
 			logger.error(e.getMessage());
 		} catch (NumberFormatException e) {
-			System.out.println("Error while parsing string to number" +e.getMessage());
+			System.out.println("Error while parsing string to number " +e.getMessage());
 			logger.error(e.getMessage());
 		} catch (ArithmeticException e) {
 			System.out.println("Error while calculating " +e.getMessage());

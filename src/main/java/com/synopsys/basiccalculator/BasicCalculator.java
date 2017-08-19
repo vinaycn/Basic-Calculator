@@ -64,7 +64,7 @@ public class BasicCalculator {
 		logger.info("Parsing expression " + expression);
 		
 		//List size should be 3(add,sub,mult,div) or 4(let) based the expression
-		List<String> parsedList = new ArrayList<>();
+		List<String> parsedList = new ArrayList<String>();
 		int startPos = expression.indexOf("(");
 
 		if (startPos < 0) {
@@ -95,36 +95,36 @@ public class BasicCalculator {
 
 		if (parsedList.get(0).equalsIgnoreCase("add")) {
 			if (parsedList.size() != 3) {
-				logger.error("Exception while parsing expression" + expression);
+				logger.error("Exception while parsing expression " + expression);
 				throw new InvalidExpressionException("Exception while parsing expression");
 			}
 			return calculate(parsedList.get(1), variablesMap) + calculate(parsedList.get(2), variablesMap);
 		} else if (parsedList.get(0).equalsIgnoreCase("mult")) {
 			if (parsedList.size() != 3) {
-				logger.error("Exception while parsing expression" + expression);
+				logger.error("Exception while parsing expression " + expression);
 				throw new InvalidExpressionException("Exception while parsing expression");
 			}
 			return calculate(parsedList.get(1), variablesMap) * calculate(parsedList.get(2), variablesMap);
 		} else if (parsedList.get(0).equalsIgnoreCase("sub")) {
 			if (parsedList.size() != 3) {
-				logger.error("Exception while parsing expression" + expression);
+				logger.error("Exception while parsing expression " + expression);
 				throw new InvalidExpressionException("Exception while parsing expression");
 			}
 			return calculate(parsedList.get(1), variablesMap) - calculate(parsedList.get(2), variablesMap);
 		} else if (parsedList.get(0).equalsIgnoreCase("div")) {
 			if (parsedList.size() != 3) {
-				logger.error("Exception while parsing expression" + expression);
+				logger.error("Exception while parsing expression " + expression);
 				throw new InvalidExpressionException("Exception while parsing expression");
 			}
 			return calculate(parsedList.get(1), variablesMap) / calculate(parsedList.get(2), variablesMap);
 		} else if (parsedList.get(0).equalsIgnoreCase("let")) {
 			
 			if (parsedList.size() != 4) {
-				logger.error("Exception while parsing expression" + expression);
+				logger.error("Exception while parsing expression " + expression);
 				throw new InvalidExpressionException("Exception while parsing expression");
 			}
 			String variableName = parsedList.get(1);
-			Integer oldValue = variablesMap.get(variableName);
+			int oldValue = variablesMap.get(variableName);
 			variablesMap.put(variableName, calculate(parsedList.get(2), variablesMap));
 			int result = calculate(parsedList.get(3), variablesMap);
 			variablesMap.put(variableName, oldValue);
