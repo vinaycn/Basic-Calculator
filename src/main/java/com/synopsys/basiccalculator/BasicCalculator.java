@@ -2,15 +2,16 @@ package com.synopsys.basiccalculator;
 
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
-import java.util.Set;
 import java.util.Stack;
 
 import org.apache.log4j.Logger;
 
 import com.synopsys.basiccalculator.exception.InvalidExpressionException;
+
+
+
 
 /**
  * Class will evaluate the given expression
@@ -60,6 +61,9 @@ public class BasicCalculator {
 	private int calculate(String expression, Map<String, Integer> variablesMap)
 			throws NumberFormatException, ArithmeticException, InvalidExpressionException {
 
+		logger.info("Parsing expression " + expression);
+		
+		//List size should be 3(add,sub,mult,div) or 4(let) based the expression
 		List<String> parsedList = new ArrayList<>();
 		int startPos = expression.indexOf("(");
 
@@ -71,17 +75,19 @@ public class BasicCalculator {
 
 		// Add the operator to the list
 		parsedList.add(expression.substring(0, startPos));
-		int parenthesis = 0;
+		int countParenthesis = 0;
 
+		//splits the expression to three parts if the expressions starts from (add,mult,div,sub)
+		// or four parts if the expression  starts from (let) 
 		for (int i = startPos; i < expression.length(); i++) {
 
 			if (expression.charAt(i) == '(')
-				parenthesis++;
+				countParenthesis++;
 
 			if (expression.charAt(i) == ')')
-				parenthesis--;
+				countParenthesis--;
 
-			if (expression.charAt(i) == ',' && parenthesis == 1 || parenthesis == 0) {
+			if (expression.charAt(i) == ',' && countParenthesis == 1 || countParenthesis == 0) {
 				parsedList.add(expression.substring(startPos + 1, i));
 				startPos = i;
 			}
@@ -89,32 +95,37 @@ public class BasicCalculator {
 
 		if (parsedList.get(0).equalsIgnoreCase("add")) {
 			if (parsedList.size() != 3) {
+				logger.error("Exception while parsing expression" + expression);
 				throw new InvalidExpressionException("Exception while parsing expression");
 			}
 			return calculate(parsedList.get(1), variablesMap) + calculate(parsedList.get(2), variablesMap);
 		} else if (parsedList.get(0).equalsIgnoreCase("mult")) {
 			if (parsedList.size() != 3) {
+				logger.error("Exception while parsing expression" + expression);
 				throw new InvalidExpressionException("Exception while parsing expression");
 			}
 			return calculate(parsedList.get(1), variablesMap) * calculate(parsedList.get(2), variablesMap);
 		} else if (parsedList.get(0).equalsIgnoreCase("sub")) {
 			if (parsedList.size() != 3) {
+				logger.error("Exception while parsing expression" + expression);
 				throw new InvalidExpressionException("Exception while parsing expression");
 			}
 			return calculate(parsedList.get(1), variablesMap) - calculate(parsedList.get(2), variablesMap);
 		} else if (parsedList.get(0).equalsIgnoreCase("div")) {
 			if (parsedList.size() != 3) {
+				logger.error("Exception while parsing expression" + expression);
 				throw new InvalidExpressionException("Exception while parsing expression");
 			}
 			return calculate(parsedList.get(1), variablesMap) / calculate(parsedList.get(2), variablesMap);
 		} else if (parsedList.get(0).equalsIgnoreCase("let")) {
+			
 			if (parsedList.size() != 4) {
+				logger.error("Exception while parsing expression" + expression);
 				throw new InvalidExpressionException("Exception while parsing expression");
 			}
 			String variableName = parsedList.get(1);
 			Integer oldValue = variablesMap.get(variableName);
 			variablesMap.put(variableName, calculate(parsedList.get(2), variablesMap));
-
 			int result = calculate(parsedList.get(3), variablesMap);
 			variablesMap.put(variableName, oldValue);
 
@@ -126,7 +137,7 @@ public class BasicCalculator {
 	}
 
 	/**
-	 * This method will check the given expression is valid or not
+	 * This method will check the given expression is well formed or not
 	 * 
 	 * @param given
 	 *            expression
@@ -142,7 +153,7 @@ public class BasicCalculator {
 				parenthesis.push('(');
 			} else if (expChars[i] == ')') {
 				if (parenthesis.size() < 1) {
-					logger.error("given expression is not well formed");
+					logger.error(exp + " expression is not well formed");
 					return false;
 				}
 

@@ -6,6 +6,7 @@ import org.junit.Test;
 
 import com.synopsys.basiccalculator.exception.InvalidExpressionException;
 
+
 public class BasicCalculatorTest {
 
 	private BasicCalculator basicCalculator;
@@ -37,6 +38,14 @@ public class BasicCalculatorTest {
 	public void givenValidExpressionShouldReturnCorrectResult()
 			throws NumberFormatException, ArithmeticException, InvalidExpressionException {
 		int result = basicCalculator.solveExpression("mult(add(2,3),add(2,mult(3,4)))");
+		Assert.assertEquals(70,result);
+	}
+	
+	
+	@Test(expected = InvalidExpressionException.class)
+	public void givenInvaliExpressionMoreCommaShouldThrowException()
+			throws NumberFormatException, ArithmeticException, InvalidExpressionException {
+		int result = basicCalculator.solveExpression("mult(add(2,3),,add(2,mult(3,4)))");
 		Assert.assertEquals(70,result);
 	}
 
